@@ -1,0 +1,17 @@
+.search-employee-container {
+    margin-top: 10%;
+    width: 100%;
+    
+}
+
+.search-employee-container input {
+    width: 92.5%;
+    margin-bottom: 5%;
+    padding: 3.5%;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.search-employee-hr {
+    width: 100%;
+}

@@ -1,0 +1,74 @@
+.add-exercise-container {
+    width: 100%;
+    text-align: left;
+    color: #777777;
+    font-size: 0.75vw;
+}
+
+fieldset {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    margin-top: 5%;
+    border-radius: 5px;
+    border: 2px solid #00467A;
+}
+
+#el legend {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0;
+    padding-top: 0;
+    text-align: left;
+    font-size: 0.65vw;
+    color: #00467A;
+}
+
+fieldset input {
+    border: none;
+    width: 100%;
+}
+
+.add-exercise-container input {
+    width: 95%;
+    padding: 3.5%;
+    border-radius: 5px;
+}
+
+.price-input {
+    border: 1px solid lightgray;
+}
+
+.submit-form-add-exercise-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 7.5%;
+}
+
+.submit-form-add-exercise-container button {
+    background-color: #00467A;
+    color: white;
+    font-weight: 700;
+    border: 1px solid #00467A;
+    padding: 3%;
+    padding-left: 13%;
+    padding-right: 13%;
+    border-radius: 5px;
+    text-align: center;
+    width: 75%;
+}
+
+.currency-div {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.add-exercise-button {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}

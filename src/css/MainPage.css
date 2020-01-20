@@ -1,0 +1,23 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+}
+
+.main-page-grid-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 60%;
+    height: 30%;
+    margin-bottom: 2.5%;
+}
+
+.grid-one-column {
+    width: 100%;
+    margin-top: 10%;
+}
+
+.grid-two-column {
+    width: 100%;
+}
