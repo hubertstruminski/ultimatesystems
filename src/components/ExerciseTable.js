@@ -128,6 +128,16 @@ class ExerciseTable extends React.Component {
         });
     }
 
+    renderTotalPrice() {
+        let pln = 0;
+        let euro = 0;
+        this.props.tasks.map((task, index) => {
+            pln += task.pricePln;
+            euro += task.priceEur;
+        });
+        return [pln, euro]
+    }
+
     
 
     render() {
@@ -137,59 +147,65 @@ class ExerciseTable extends React.Component {
         let onDownPricePlnSort = this.state.onDownPricePlnSort;
         let onUpPriceEurSort = this.state.onUpPriceEurSort;
         let onDownPriceEurSort = this.state.onDownPriceEurSort;
+        const totals = this.renderTotalPrice();
         return (
             <>
-            <div className="table-exercise-container">
-                <div className="table-container">
-                    <table className="table table-sm">
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <div>
-                                        <div className="title">Nazwa zadania</div>
-                                        <div className="arrows">
-                                            <i class="fas fa-sort-up" onClick={this.onUpNameSort}></i>
-                                            <i class="fas fa-sort-down" onClick={this.onDownNameSort}></i>
+                <div className="table-exercise-container">
+                    <div className="table-container">
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <div>
+                                            <div className="title">Nazwa zadania</div>
+                                            <div className="arrows">
+                                                <i class="fas fa-sort-up" onClick={this.onUpNameSort}></i>
+                                                <i class="fas fa-sort-down" onClick={this.onDownNameSort}></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div>
-                                        <div className="title">Kwota w PLN</div>
-                                        <div className="arrows">
-                                            <i class="fas fa-sort-up" onClick={this.onUpPricePlnSort}></i>
-                                            <i class="fas fa-sort-down" onClick={this.onDownPricePlnSort}></i>
+                                    </th>
+                                    <th scope="col">
+                                        <div>
+                                            <div className="title">Kwota w PLN</div>
+                                            <div className="arrows">
+                                                <i class="fas fa-sort-up" onClick={this.onUpPricePlnSort}></i>
+                                                <i class="fas fa-sort-down" onClick={this.onDownPricePlnSort}></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div>
-                                        <div className="title">Kwota w EUR</div>
-                                        <div className="arrows">
-                                            <i class="fas fa-sort-up" onClick={this.onUpPriceEurSort}></i>
-                                            <i class="fas fa-sort-down" onClick={this.onDownPriceEurSort}></i>
+                                    </th>
+                                    <th scope="col">
+                                        <div>
+                                            <div className="title">Kwota w EUR</div>
+                                            <div className="arrows">
+                                                <i class="fas fa-sort-up" onClick={this.onUpPriceEurSort}></i>
+                                                <i class="fas fa-sort-down" onClick={this.onDownPriceEurSort}></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div>
-                                        <div className="title">Opcje</div>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.renderNewTask()}
-                            { onNameUpSort && this.renderNewTask() }
-                            { onDownNameSort && this.renderNewTask() }
-                            { onUpPricePlnSort && this.renderNewTask() }
-                            { onDownPricePlnSort && this.renderNewTask() }
-                            { onUpPriceEurSort && this.renderNewTask() }
-                            { onDownPriceEurSort && this.renderNewTask() }
-                        </tbody>
-                    </table>
+                                    </th>
+                                    <th scope="col">
+                                        <div>
+                                            <div className="title">Opcje</div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderNewTask()}
+                                { onNameUpSort && this.renderNewTask() }
+                                { onDownNameSort && this.renderNewTask() }
+                                { onUpPricePlnSort && this.renderNewTask() }
+                                { onDownPricePlnSort && this.renderNewTask() }
+                                { onUpPriceEurSort && this.renderNewTask() }
+                                { onDownPriceEurSort && this.renderNewTask() }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+                <div className="total-container">
+                    <div className="total-inside-wrapper">
+                        Suma: {totals[0]} PLN ({totals[1]} Euro)
+                    </div>
+                </div>
             </>
         );
     }

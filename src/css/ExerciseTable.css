@@ -36,6 +36,17 @@ th > div {
     padding-right: 5%;
 }
 
+.total-container {
+    width: 100%;
+    text-align: left;
+}
+
+.total-inside-wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
 
 
 .title {

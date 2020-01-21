@@ -21,6 +21,7 @@ fieldset {
     padding-bottom: 0;
     padding-top: 0;
     text-align: left;
+    width: 40%;
     font-size: 0.65vw;
     color: #00467A;
 }

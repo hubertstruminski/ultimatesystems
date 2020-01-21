@@ -3,6 +3,7 @@ import '../css/MainPage.css';
 import SearchEmployee from './SearchEmployee';
 import AddExercise from './AddExercise';
 import ExerciseTable from './ExerciseTable';
+import SearchEmployeeActive from './SearchEmployeeActive';
 
 class MainPage extends React.Component {
     constructor() {
@@ -78,7 +79,26 @@ class MainPage extends React.Component {
                             />
                         </div>
                         <div className="grid-two-column">
-
+                            <div className="arrow-introduction-container">
+                                <i class="fas fa-arrows-alt-h"></i>
+                                <i class="fas fa-arrows-alt-h"></i>
+                            </div>
+                            <div className="search-employees-container">
+                                <SearchEmployeeActive />
+                            </div>
+                            <div className="results-employees-container">
+                                <div className="results-one-grid-column">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                </div>
+                                <div className="results-two-grid-column">
+                                    <fieldset id="el2">
+                                        <legend>Pracownik</legend>
+                                        <div className="search-result-employee-input">
+                                            Hubert Strumiński
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

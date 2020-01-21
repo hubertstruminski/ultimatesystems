@@ -20,4 +20,70 @@
 
 .grid-two-column {
     width: 100%;
+    background-color: #F3F3F3;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 15% 42.5% 42.5%;
+}
+
+.arrow-introduction-container {
+    padding-top: 32.5%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.search-employees-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 7.5%;
+}
+
+.results-employees-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.results-one-grid-column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5vw;
+    padding-top: 95%;
+}
+
+.results-two-grid-column {
+    width: 100%;
+    height: 100%;
+    margin-top: 16.5%;
+}
+
+.search-result-employee-input {
+    border-radius: 5px;
+}
+
+#el2 {
+    height: 15%;
+    border: 1px solid lightgray;
+}
+
+#el2 legend {
+    padding-left: 1em;
+    padding-right: 6em;
+    text-align: left;
+    font-size: 0.75vw;
+    width: 1%;
+    color: gray;
+}
+
+#el2 div {
+    width: 100%;
+    height: 100%;
 }
