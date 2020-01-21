@@ -4,6 +4,7 @@ import SearchEmployee from './SearchEmployee';
 import AddExercise from './AddExercise';
 import ExerciseTable from './ExerciseTable';
 import SearchEmployeeActive from './SearchEmployeeActive';
+import $ from 'jquery';
 
 class MainPage extends React.Component {
     constructor() {
@@ -66,6 +67,10 @@ class MainPage extends React.Component {
         return 0;
     }
 
+    renderEmployeeResult(name) {
+        $(".search-result-employee-input").text(name);
+    }
+
     render() {
         return (
             <>
@@ -84,7 +89,9 @@ class MainPage extends React.Component {
                                 <i class="fas fa-arrows-alt-h"></i>
                             </div>
                             <div className="search-employees-container">
-                                <SearchEmployeeActive />
+                                <SearchEmployeeActive 
+                                    renderEmployeeResult={this.renderEmployeeResult}
+                                />
                             </div>
                             <div className="results-employees-container">
                                 <div className="results-one-grid-column">

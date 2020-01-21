@@ -3,5 +3,7 @@
     border-radius: 5px;
     border: 1px solid lightgray;
     padding: 1.25%;
+    width: 75%;
+    font-size: 0.85vw;
 }
 

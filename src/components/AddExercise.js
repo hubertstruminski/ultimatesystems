@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/AddExercise.css';
+import NumericConverter from '../util/NumericConverter';
 
 class AddExercise extends React.Component {
     constructor() {
@@ -11,9 +12,12 @@ class AddExercise extends React.Component {
             pricePln: '',
             priceEur: 0,
             isNameError: false,
-            isLetterError: false
+            isLetterError: false,
+            isEmptyNumberField: false
         }
         this.errors = [];
+
+        this.NumericConverter = new NumericConverter();
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -22,19 +26,19 @@ class AddExercise extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    isNumeric(number) {
-        return !isNaN(number);
-    }
-
     onSubmit() {
         this.errors = [];
-        if(this.state.name.length < 5 || !this.isNumeric(this.state.pricePln)) {
+        if(this.state.name.length < 5 || !this.NumericConverter.isNumeric(this.state.pricePln) || this.state.pricePln.length === 0) {
             if(this.state.name.length < 5) {
                 this.setState({ isNameError: true});
                 this.errors.push(true);
             }
-            if(!this.isNumeric(this.state.pricePln)) {
+            if(!this.NumericConverter.isNumeric(this.state.pricePln)) {
                 this.setState({ isLetterError: true});
+                this.errors.push(true);
+            }
+            if(this.state.pricePln.length === 0) {
+                this.setState({ isEmptyNumberField: true });
                 this.errors.push(true);
             }
         }
@@ -52,7 +56,7 @@ class AddExercise extends React.Component {
     render() {
         let isNameError = this.state.isNameError;
         let isLetterError = this.state.isLetterError;
-
+        let isEmptyNumberField = this.state.isEmptyNumberField;
         return (
             <div className="add-exercise-container">
                 Zadania
@@ -77,6 +81,7 @@ class AddExercise extends React.Component {
                     onChange={this.onChange}
                 />
                 { isLetterError && <span style={{color: 'red'}}>It's not a number.</span>}
+                { isEmptyNumberField && <span style={{color: 'red'}}>Can not add with empty field.</span>}
                 <br />
                 <div className="submit-form-add-exercise-container">
                     <div className="currency-div">1 euro = 4.8282</div>

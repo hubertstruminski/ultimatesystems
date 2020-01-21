@@ -13,6 +13,7 @@
 table {
     border-collapse: collapse;
     border: 1px solid #E9F0FA;
+    font-size: 1vw;
 }
 
 tr {
@@ -21,7 +22,6 @@ tr {
 
 th, td {
     color: #656565;
-    /* width: 5%; */
 }
 
 th {
@@ -32,6 +32,7 @@ th {
 th > div {
     display: inline-block;
 }
+
 .trash-container {
     padding-right: 5%;
 }
@@ -39,6 +40,7 @@ th > div {
 .total-container {
     width: 100%;
     text-align: left;
+    font-size: 0.85vw;
 }
 
 .total-inside-wrapper {
@@ -47,15 +49,9 @@ th > div {
     justify-content: center;
 }
 
-
-
 .title {
     float: left;
-    /* height: 100%; */
-    /* display: flex; */
-    /* align-items: center; */
     margin-top: 3.25%;
-    /* margin-left: 30%; */
 }
 
 .arrows {
@@ -64,4 +60,8 @@ th > div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.arrow-pointer {
+    cursor: pointer;
 }

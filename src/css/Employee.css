@@ -1,0 +1,7 @@
+.list-item-cursor {
+    cursor: pointer;
+}
+
+.list-item-cursor:hover {
+    background-color: lightgray;
+}

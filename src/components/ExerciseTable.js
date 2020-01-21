@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/ExerciseTable.css';
 import Task from '../components/Task';
 import $ from 'jquery';
+import NumericConverter from '../util/NumericConverter';
 
 class ExerciseTable extends React.Component {
     constructor() {
@@ -15,6 +16,8 @@ class ExerciseTable extends React.Component {
             onUpPriceEurSort: false,
             onDownPriceEurSort: false
         }
+        this.NumericConverter = new NumericConverter();
+
         this.onUpNameSort = this.onUpNameSort.bind(this);
         this.onDownNameSort = this.onDownNameSort.bind(this);
         this.onUpPricePlnSort = this.onUpPricePlnSort.bind(this);
@@ -132,8 +135,13 @@ class ExerciseTable extends React.Component {
         let pln = 0;
         let euro = 0;
         this.props.tasks.map((task, index) => {
-            pln += task.pricePln;
-            euro += task.priceEur;
+            if(!(task.pricePln instanceof String)) {
+                pln += this.NumericConverter.convertToNumber(task.pricePln);
+                euro += task.priceEur;
+            } else {
+                pln += task.pricePln;
+                euro += task.priceEur;
+            }
         });
         return [pln, euro]
     }
@@ -159,8 +167,8 @@ class ExerciseTable extends React.Component {
                                         <div>
                                             <div className="title">Nazwa zadania</div>
                                             <div className="arrows">
-                                                <i class="fas fa-sort-up" onClick={this.onUpNameSort}></i>
-                                                <i class="fas fa-sort-down" onClick={this.onDownNameSort}></i>
+                                                <i class="fas fa-sort-up arrow-pointer" onClick={this.onUpNameSort}></i>
+                                                <i class="fas fa-sort-down arrow-pointer" onClick={this.onDownNameSort}></i>
                                             </div>
                                         </div>
                                     </th>
@@ -168,8 +176,8 @@ class ExerciseTable extends React.Component {
                                         <div>
                                             <div className="title">Kwota w PLN</div>
                                             <div className="arrows">
-                                                <i class="fas fa-sort-up" onClick={this.onUpPricePlnSort}></i>
-                                                <i class="fas fa-sort-down" onClick={this.onDownPricePlnSort}></i>
+                                                <i class="fas fa-sort-up arrow-pointer" onClick={this.onUpPricePlnSort}></i>
+                                                <i class="fas fa-sort-down arrow-pointer" onClick={this.onDownPricePlnSort}></i>
                                             </div>
                                         </div>
                                     </th>
@@ -177,8 +185,8 @@ class ExerciseTable extends React.Component {
                                         <div>
                                             <div className="title">Kwota w EUR</div>
                                             <div className="arrows">
-                                                <i class="fas fa-sort-up" onClick={this.onUpPriceEurSort}></i>
-                                                <i class="fas fa-sort-down" onClick={this.onDownPriceEurSort}></i>
+                                                <i class="fas fa-sort-up arrow-pointer" onClick={this.onUpPriceEurSort}></i>
+                                                <i class="fas fa-sort-down arrow-pointer" onClick={this.onDownPriceEurSort}></i>
                                             </div>
                                         </div>
                                     </th>
